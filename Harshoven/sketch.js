@@ -1,8 +1,9 @@
 //variables, which allow the creation of new pipes and determine the size of the canvas
+
 var bird;
 var pipes = [];
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(600, 600);
   bird = new Bird();
   pipes.push(new Pipe());
 }
@@ -10,18 +11,27 @@ function setup() {
 function draw() {
   background(0);
 //when pipe hits bird, console displays the word "hit"
+
   for (var i = pipes.length-1; i >= 0; i--) {
     pipes[i].show();
     pipes[i].update();
 
     if (pipes[i].hits(bird)) {
       console.log("HIT");
+      fill(255,0,0) 
+      textSize(102);
+      text("Try harder",50,300)
+     
+      document.location.reload()
+      
+      
     }
 
 
     if (pipes[i].offscreen()) {
       pipes.splice(i, 1);
     }
+ 
   }
 //makes the background look like it is moving 
   bird.update();
@@ -29,7 +39,10 @@ function draw() {
   if (frameCount % 100 == 0) {
     pipes.push(new Pipe());
   }
-	
+	fill(255,0,0)
+  textSize(25)
+var millisecond = millis();
+text("Time: \n" + millisecond, 5, 40)
 }
  
 
@@ -58,7 +71,7 @@ triangle(this.x + 75,this.y +0,this.x + 21,this.y +22,this.x + 20,this.y - 19)
     fill(255,255,0);
     ellipse(this.x, this.y, 75, 75);
      fill(0)
-ellipse(this.x + 10,this.y - 20,25,25)
+ellipse(this.x + 10,this.y - 20,20,20)
 
   }
 
@@ -127,4 +140,3 @@ function Pipe() {
 
 
 }
-
