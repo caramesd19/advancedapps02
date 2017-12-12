@@ -3,12 +3,15 @@
 var bird;
 var pipes = [];
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(600, 600);
+  new Audio('https://www.bensound.com/royalty-free-music?download=extremeaction').play()
   bird = new Bird();
   pipes.push(new Pipe());
 }
 
 function draw() {
+
+  
   background(0);
 //when pipe hits bird, console displays the word "hit"
 
@@ -139,5 +142,5 @@ function Pipe() {
   }
 
 
-  
 }
+
